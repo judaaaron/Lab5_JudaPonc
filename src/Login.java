@@ -1,9 +1,14 @@
+
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.UnsupportedLookAndFeelException;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Admin
@@ -36,15 +41,17 @@ public class Login extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        bt_registrado = new javax.swing.JButton();
-        bt_regresar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jl_heroes = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jl_villanos = new javax.swing.JList<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
         wallpaer = new javax.swing.JLabel();
         tf_passwordd = new javax.swing.JPasswordField();
         bt_ingresar = new javax.swing.JButton();
-        bt_registrarse = new javax.swing.JButton();
         bt_salir = new javax.swing.JButton();
         tf_user = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
         lb_fondo = new javax.swing.JLabel();
 
         jd_registrarse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -52,48 +59,61 @@ public class Login extends javax.swing.JFrame {
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText("jTextField2");
-        jd_registrarse.getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        jTextField2.setText("Edad");
+        jd_registrarse.getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 70, -1));
 
         jTextField3.setEditable(false);
         jTextField3.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField3.setText("jTextField2");
-        jd_registrarse.getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        jTextField3.setText("Altura");
+        jd_registrarse.getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 70, -1));
 
         jTextField4.setEditable(false);
         jTextField4.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.setText("jTextField2");
-        jd_registrarse.getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+        jd_registrarse.getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, -1));
 
         jTextField5.setEditable(false);
         jTextField5.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField5.setText("Contraseña");
-        jd_registrarse.getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        jTextField5.setText("Planeta de origen");
+        jd_registrarse.getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
 
         jTextField6.setEditable(false);
         jTextField6.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField6.setText("Nombre");
-        jd_registrarse.getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 70, -1));
+        jd_registrarse.getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 70, -1));
 
-        bt_registrado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registration.png"))); // NOI18N
-        jd_registrarse.getContentPane().add(bt_registrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 570, 100, 40));
+        jl_heroes.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jl_heroes);
 
-        bt_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/undo.png"))); // NOI18N
-        bt_regresar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bt_regresarMouseClicked(evt);
-            }
-        });
-        jd_registrarse.getContentPane().add(bt_regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 570, 100, 40));
+        jd_registrarse.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 240, 190));
+
+        jl_villanos.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jl_villanos);
+
+        jd_registrarse.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 250, 190));
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personakes");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Superheroes");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("blue");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Villanos");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("d");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane3.setViewportView(jTree1);
+
+        jd_registrarse.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 340, 190));
 
         wallpaer.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         wallpaer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        wallpaer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/note.png"))); // NOI18N
-        jd_registrarse.getContentPane().add(wallpaer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 510, 640));
+        wallpaer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/superpower.png"))); // NOI18N
+        jd_registrarse.getContentPane().add(wallpaer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1430, 820));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,15 +122,12 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(tf_passwordd, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 210, 50));
 
         bt_ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registro.png"))); // NOI18N
-        getContentPane().add(bt_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 130, 50));
-
-        bt_registrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registration.png"))); // NOI18N
-        bt_registrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+        bt_ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bt_registrarseMouseClicked(evt);
+                bt_ingresarMouseClicked(evt);
             }
         });
-        getContentPane().add(bt_registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 90, 40));
+        getContentPane().add(bt_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 130, 50));
 
         bt_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salida.png"))); // NOI18N
         bt_salir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -124,14 +141,6 @@ public class Login extends javax.swing.JFrame {
         tf_user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(tf_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 210, 60));
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Registrate");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
-
         lb_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/login (1).png"))); // NOI18N
         getContentPane().add(lb_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 500, 510));
 
@@ -142,23 +151,27 @@ public class Login extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_bt_salirMouseClicked
 
-    private void bt_registrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_registrarseMouseClicked
+    private void bt_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ingresarMouseClicked
+        String user = tf_user.getText();
+        String pass = tf_passwordd.getText();
+        if (user.equals("stanlee") && pass.equals("spiderman99")) {
+            JOptionPane.showMessageDialog(this, "Bienvenido al sistema " + user);
+            jd_registrarse.pack();
+            jd_registrarse.setModal(true);
+            jd_registrarse.setLocationRelativeTo(null);
+            jd_registrarse.setVisible(true);
 
-        jd_registrarse.pack();
-        jd_registrarse.setModal(true);
-        jd_registrarse.setLocationRelativeTo(this);
-        jd_registrarse.setVisible(true);
-
-    }//GEN-LAST:event_bt_registrarseMouseClicked
-
-    private void bt_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_regresarMouseClicked
-       jd_registrarse.setVisible(false);
-    }//GEN-LAST:event_bt_regresarMouseClicked
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrecta");
+            tf_user.setText("");
+            tf_passwordd.setText("");
+        }
+    }//GEN-LAST:event_bt_ingresarMouseClicked
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -177,9 +190,7 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        } 
         //</editor-fold>
 
         /* Create and display the form */
@@ -192,20 +203,28 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_ingresar;
-    private javax.swing.JButton bt_registrado;
-    private javax.swing.JButton bt_registrarse;
-    private javax.swing.JButton bt_regresar;
     private javax.swing.JButton bt_salir;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTree jTree1;
     private javax.swing.JDialog jd_registrarse;
+    private javax.swing.JList<String> jl_heroes;
+    private javax.swing.JList<String> jl_villanos;
     private javax.swing.JLabel lb_fondo;
     private javax.swing.JPasswordField tf_passwordd;
     private javax.swing.JTextField tf_user;
     private javax.swing.JLabel wallpaer;
     // End of variables declaration//GEN-END:variables
+
+    ArrayList<SuperHeroes> heroe= new ArrayList();
+    ArrayList<Villanos> villanos= new ArrayList();
+    
+    
+
 }
