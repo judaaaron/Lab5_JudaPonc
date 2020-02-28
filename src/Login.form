@@ -44,6 +44,9 @@
                   <Connection code="new DefaultListModel()" type="code"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jl_heroesMouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -62,7 +65,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTree" name="jTree1">
+            <Component class="javax.swing.JTree" name="jt_supers">
               <Properties>
                 <Property name="model" type="javax.swing.tree.TreeModel" editor="org.netbeans.modules.form.editors2.TreeModelEditor">
                   <TreeModel code="Personajes&#xa; &#xa; &#xa;"/>
@@ -131,11 +134,11 @@
               <StringArray count="7">
                 <StringItem index="0" value="[GRUPOS]"/>
                 <StringItem index="1" value="&lt;SuperHeroes&gt;"/>
-                <StringItem index="2" value="Los Vengadores."/>
+                <StringItem index="2" value="Los Vengadores"/>
                 <StringItem index="3" value="Los X-Men"/>
                 <StringItem index="4" value="&lt;Villanos&gt;"/>
-                <StringItem index="5" value="The Dark Avengers."/>
-                <StringItem index="6" value="The Sinister Six."/>
+                <StringItem index="5" value="The Dark Avengers"/>
+                <StringItem index="6" value="The Sinister Six"/>
               </StringArray>
             </Property>
           </Properties>
@@ -425,13 +428,16 @@
       <SubComponents>
         <MenuItem class="javax.swing.JMenuItem" name="mi_eliminar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+            <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="mi_agregarAlArbol">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jMenuItem2"/>
+            <Property name="text" type="java.lang.String" value="Agregar al arbol"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mi_agregarAlArbolActionPerformed"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>

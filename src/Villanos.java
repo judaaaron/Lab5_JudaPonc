@@ -1,21 +1,24 @@
 
 public class Villanos {
 
-    private String nombre, planeta, carcel;
+    private String nombre, planeta, carcel,tipo;
     private int edad, muertes;
     private double altura;
 
     public Villanos() {
     }
 
-    public Villanos(String nombre, String planeta, String carcel, int edad, int muertes, double altura) {
+    public Villanos(String nombre, String planeta, String carcel, String tipo, int edad, int muertes, double altura) {
         this.nombre = nombre;
         this.planeta = planeta;
         this.carcel = carcel;
+        this.tipo = tipo;
         this.edad = edad;
         this.muertes = muertes;
         this.altura = altura;
     }
+
+    
 
     public String getNombre() {
         return nombre;
@@ -60,6 +63,16 @@ public class Villanos {
     public double getAltura() {
         return altura;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    
 
     public void setAltura(double altura) {
         this.altura = altura;

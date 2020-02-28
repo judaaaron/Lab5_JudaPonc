@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -40,7 +42,7 @@ public class Login extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jl_heroes = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jt_supers = new javax.swing.JTree();
         bt_agregarHeroes = new javax.swing.JButton();
         tf_altura = new javax.swing.JTextField();
         tf_edad = new javax.swing.JTextField();
@@ -90,13 +92,18 @@ public class Login extends javax.swing.JFrame {
         jd_registrar.getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 70, -1));
 
         jl_heroes.setModel(new DefaultListModel());
+        jl_heroes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_heroesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jl_heroes);
 
         jd_registrar.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 220, 190));
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personajes");
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane3.setViewportView(jTree1);
+        jt_supers.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane3.setViewportView(jt_supers);
 
         jd_registrar.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, 340, 190));
 
@@ -115,7 +122,7 @@ public class Login extends javax.swing.JFrame {
         jd_registrar.getContentPane().add(tf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 110, 30));
         jd_registrar.getContentPane().add(tf_supers, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 240, 110, 30));
 
-        cb_tipoSuper.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "[GRUPOS]", "<SuperHeroes>", "Los Vengadores.", "Los X-Men", "<Villanos>", "The Dark Avengers.", "The Sinister Six." }));
+        cb_tipoSuper.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "[GRUPOS]", "<SuperHeroes>", "Los Vengadores", "Los X-Men", "<Villanos>", "The Dark Avengers", "The Sinister Six" }));
         jd_registrar.getContentPane().add(cb_tipoSuper, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 150, 30));
 
         bt_agregarVillanos2.setFont(new java.awt.Font("Agency FB", 1, 14)); // NOI18N
@@ -213,10 +220,15 @@ public class Login extends javax.swing.JFrame {
         jLabel6.setText("Alltura");
         jd_registrarVillano.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, -1));
 
-        mi_eliminar.setText("jMenuItem1");
+        mi_eliminar.setText("Eliminar");
         popup_opciones.add(mi_eliminar);
 
-        mi_agregarAlArbol.setText("jMenuItem2");
+        mi_agregarAlArbol.setText("Agregar al arbol");
+        mi_agregarAlArbol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_agregarAlArbolActionPerformed(evt);
+            }
+        });
         popup_opciones.add(mi_agregarAlArbol);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -287,7 +299,7 @@ public class Login extends javax.swing.JFrame {
 
     private void bt_agregarHeroesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarHeroesMouseClicked
         String nombre = tf_name.getText(), planeta = tf_planeta.getText(), eda = tf_edad.getText(), alt = tf_altura.getText(), supers = tf_supers.getText();
-
+        String mortal = "";
         int edad = Integer.parseInt(eda);
         double altura = Double.parseDouble(alt);
         int superPowers = Integer.parseInt(supers);
@@ -313,10 +325,16 @@ public class Login extends javax.swing.JFrame {
 
                     }
                     String descri = JOptionPane.showInputDialog(this, " Ingrese descripcion del superpoder");
-                    String mortal = JOptionPane.showInputDialog(this, " Es mortal? ");
+                    int cari = Integer.parseInt(JOptionPane.showInputDialog(this, " Es Moratl?\n 1.Si\n 2.No"));
+                    if (cari == 1) {
+                        mortal = "Si";
+
+                    } else {
+                        mortal = "No";
+                    }
                 }
 
-                DefaultListModel modelo = (DefaultListModel) jl_villanos.getModel();
+                DefaultListModel modelo = (DefaultListModel) jl_heroes.getModel();
                 modelo.addElement(new SuperHeroes(nombre, planeta, edad, 0, superPowers, altura, cb_tipoSuper.getSelectedItem().toString()));
                 jl_heroes.setModel(modelo);
                 tf_name.setText("");
@@ -334,7 +352,7 @@ public class Login extends javax.swing.JFrame {
 
     private void bt_agregarVillanos2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarVillanos2MouseClicked
         String nombre = tf_name.getText(), planeta = tf_planeta.getText(), eda = tf_edad.getText(), alt = tf_altura.getText(), supers = tf_supers.getText();
-
+        String mortal = "";
         int edad = Integer.parseInt(eda);
         double altura = Double.parseDouble(alt);
         int superPowers = Integer.parseInt(supers);
@@ -350,6 +368,16 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Debe de pertencer a superheroes si desea estar en este grupo");
 
             } else {
+                int car = Integer.parseInt(JOptionPane.showInputDialog(this, " Esta en la carcel?\n 1.Si\n 2.No"));
+                String carcel = "";
+                if (car == 1) {
+                    carcel = "Si";
+                } else {
+                    carcel = "No";
+                }
+
+                int muertes = Integer.parseInt(JOptionPane.showInputDialog(this, " Ingrese muertes causadas"));
+
                 for (int i = 1; i <= superPowers; i++) {
 
                     int nivel = Integer.parseInt(JOptionPane.showInputDialog(this, " Ingrese nivel del superpoder " + i));
@@ -360,11 +388,18 @@ public class Login extends javax.swing.JFrame {
 
                     }
                     String descri = JOptionPane.showInputDialog(this, " Ingrese descripcion del superpoder");
-                    String mortal = JOptionPane.showInputDialog(this, " Es mortal? ");
+                    int cari = Integer.parseInt(JOptionPane.showInputDialog(this, " Es Moratl?\n 1.Si\n 2.No"));
+                    if (cari == 1) {
+                        mortal = "Si";
+
+                    } else {
+                        mortal = "No";
+                    }
+
                 }
 
-                DefaultListModel modelo = (DefaultListModel) jl_heroes.getModel();
-                modelo.addElement(new SuperHeroes(nombre, planeta, edad, 0, superPowers, altura, cb_tipoSuper.getSelectedItem().toString()));
+                DefaultListModel modelo = (DefaultListModel) jl_villanos.getModel();
+                modelo.addElement(new Villanos(nombre, planeta, carcel, cb_tipoSuper.getSelectedItem().toString(), edad, 0, altura));
                 jl_heroes.setModel(modelo);
                 tf_name.setText("");
                 tf_planeta.setText("");
@@ -382,6 +417,75 @@ public class Login extends javax.swing.JFrame {
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jl_heroesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_heroesMouseClicked
+        if (jl_heroes.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                popup_opciones.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+
+            }
+        }
+    }//GEN-LAST:event_jl_heroesMouseClicked
+
+    private void mi_agregarAlArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_agregarAlArbolActionPerformed
+        if (jl_heroes.getSelectedIndex() >= 0) {
+            DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_supers.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+            //obtener la persona a guardar
+            DefaultListModel modeloLISTA = (DefaultListModel) jl_heroes.getModel();
+
+            String nombre, planeta, tipo;
+            int edad, contAtrapados, superpoderes;
+            double altura;
+
+            tipo = ((SuperHeroes) modeloLISTA.get(jl_heroes.getSelectedIndex())).getTipo();
+            nombre = ((SuperHeroes) modeloLISTA.get(jl_heroes.getSelectedIndex())).getNombre();
+            planeta = ((SuperHeroes) modeloLISTA.get(jl_heroes.getSelectedIndex())).getPlaneta();
+            edad = ((SuperHeroes) modeloLISTA.get(jl_heroes.getSelectedIndex())).getEdad();
+            contAtrapados = ((SuperHeroes) modeloLISTA.get(jl_heroes.getSelectedIndex())).getContAtrapados();
+            superpoderes = ((SuperHeroes) modeloLISTA.get(jl_heroes.getSelectedIndex())).getSuperpoderes();
+            altura = ((SuperHeroes) modeloLISTA.get(jl_heroes.getSelectedIndex())).getAltura();
+
+            int centinela = -1;
+            int controlador = -1;
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().equals("Los vengadores")) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new SuperHeroes(nombre, planeta, edad, contAtrapados, superpoderes, altura, tipo));
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                    centinela = 1;
+                } //fin if
+
+                if (raiz.getChildAt(i) instanceof SuperHeroes) {
+                    DefaultMutableTreeNode n = new DefaultMutableTreeNode();
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(n);
+                    controlador = 1;
+
+                }
+
+            }
+
+//fin for  
+            if (controlador == -1) {
+                if (centinela == -1) {
+                    DefaultMutableTreeNode n = new DefaultMutableTreeNode("Super Heroes");
+                    DefaultMutableTreeNode a = new DefaultMutableTreeNode(tipo);
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new SuperHeroes(nombre, planeta, edad, contAtrapados, superpoderes, altura, tipo));
+                    n.add(a);
+                    a.add(p);
+                    raiz.add(n);
+                } else {
+                    DefaultMutableTreeNode a = new DefaultMutableTreeNode(tipo);
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new SuperHeroes(nombre, planeta, edad, contAtrapados, superpoderes, altura, tipo));
+
+                }
+                modeloARBOL.reload();
+            } else {
+                JOptionPane.showMessageDialog(this, " No hay persona selecciionada");
+            }
+
+        }
+    }//GEN-LAST:event_mi_agregarAlArbolActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,12 +542,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JTree jTree1;
     private javax.swing.JDialog jd_registrar;
     private javax.swing.JDialog jd_registrarVillano;
     private javax.swing.JList<String> jl_heroes;
     private javax.swing.JList<String> jl_villanos;
     private javax.swing.JList<String> jl_villanos1;
+    private javax.swing.JTree jt_supers;
     private javax.swing.JLabel lb_fondo;
     private javax.swing.JMenuItem mi_agregarAlArbol;
     private javax.swing.JMenuItem mi_eliminar;
