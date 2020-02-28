@@ -35,7 +35,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jd_registrarse = new javax.swing.JDialog();
+        jd_registrar = new javax.swing.JDialog();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
@@ -43,58 +43,74 @@ public class Login extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jl_heroes = new javax.swing.JList<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jl_villanos = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
+        bt_agregarHeroes = new javax.swing.JButton();
+        tf_altura = new javax.swing.JTextField();
+        tf_edad = new javax.swing.JTextField();
+        tf_planeta = new javax.swing.JTextField();
+        tf_name = new javax.swing.JTextField();
+        tf_supers = new javax.swing.JTextField();
+        cb_tipoSuper = new javax.swing.JComboBox<>();
         wallpaer = new javax.swing.JLabel();
+        jd_registrarVillano = new javax.swing.JDialog();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jl_villanos1 = new javax.swing.JList<>();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        bt_agregarVillanos1 = new javax.swing.JButton();
+        wallpaer1 = new javax.swing.JLabel();
+        Menu = new javax.swing.JDialog();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        bt_registrarASuperHeroes = new javax.swing.JButton();
+        wallpaer2 = new javax.swing.JLabel();
         tf_passwordd = new javax.swing.JPasswordField();
         bt_ingresar = new javax.swing.JButton();
         bt_salir = new javax.swing.JButton();
         tf_user = new javax.swing.JTextField();
         lb_fondo = new javax.swing.JLabel();
 
-        jd_registrarse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jd_registrar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("Edad");
-        jd_registrarse.getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 70, -1));
+        jd_registrar.getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 70, -1));
 
         jTextField3.setEditable(false);
         jTextField3.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("Altura");
-        jd_registrarse.getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 70, -1));
+        jd_registrar.getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 70, -1));
 
         jTextField4.setEditable(false);
         jTextField4.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField4.setText("jTextField2");
-        jd_registrarse.getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, -1));
+        jTextField4.setText("Numero de superpoderes");
+        jd_registrar.getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
 
         jTextField5.setEditable(false);
         jTextField5.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setText("Planeta de origen");
-        jd_registrarse.getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+        jd_registrar.getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
 
         jTextField6.setEditable(false);
         jTextField6.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField6.setText("Nombre");
-        jd_registrarse.getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 70, -1));
+        jd_registrar.getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 70, -1));
 
         jl_heroes.setModel(new DefaultListModel());
         jScrollPane1.setViewportView(jl_heroes);
 
-        jd_registrarse.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 240, 190));
-
-        jl_villanos.setModel(new DefaultListModel());
-        jScrollPane2.setViewportView(jl_villanos);
-
-        jd_registrarse.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 250, 190));
+        jd_registrar.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 240, 190));
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personakes");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Superheroes");
@@ -108,17 +124,116 @@ public class Login extends javax.swing.JFrame {
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane3.setViewportView(jTree1);
 
-        jd_registrarse.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 340, 190));
+        jd_registrar.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 340, 190));
+
+        bt_agregarHeroes.setFont(new java.awt.Font("Agency FB", 1, 14)); // NOI18N
+        bt_agregarHeroes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/hero.png"))); // NOI18N
+        bt_agregarHeroes.setText("Agregar a lista de superheroes");
+        bt_agregarHeroes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_agregarHeroesMouseClicked(evt);
+            }
+        });
+        jd_registrar.getContentPane().add(bt_agregarHeroes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, -1, 40));
+        jd_registrar.getContentPane().add(tf_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 110, 30));
+        jd_registrar.getContentPane().add(tf_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 110, 30));
+        jd_registrar.getContentPane().add(tf_planeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 110, 30));
+        jd_registrar.getContentPane().add(tf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 110, 30));
+        jd_registrar.getContentPane().add(tf_supers, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 240, 110, 30));
+
+        cb_tipoSuper.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "· Los Vengadores.", "· Los X-Me" }));
+        jd_registrar.getContentPane().add(cb_tipoSuper, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 150, 30));
 
         wallpaer.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         wallpaer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         wallpaer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/superpower.png"))); // NOI18N
-        jd_registrarse.getContentPane().add(wallpaer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1430, 820));
+        jd_registrar.getContentPane().add(wallpaer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1430, 830));
+
+        jd_registrarVillano.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField7.setEditable(false);
+        jTextField7.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField7.setText("Planeta de origen");
+        jd_registrarVillano.getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+
+        jTextField8.setEditable(false);
+        jTextField8.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField8.setText("Edad");
+        jd_registrarVillano.getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 70, -1));
+
+        jTextField9.setEditable(false);
+        jTextField9.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField9.setText("jTextField2");
+        jd_registrarVillano.getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, -1));
+
+        jl_villanos1.setModel(new DefaultListModel());
+        jScrollPane4.setViewportView(jl_villanos1);
+
+        jd_registrarVillano.getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 250, 190));
+
+        jTextField10.setEditable(false);
+        jTextField10.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        jTextField10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField10.setText("Nombre");
+        jd_registrarVillano.getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 70, -1));
+
+        jTextField11.setEditable(false);
+        jTextField11.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        jTextField11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField11.setText("Altura");
+        jd_registrarVillano.getContentPane().add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 70, -1));
+
+        bt_agregarVillanos1.setFont(new java.awt.Font("Agency FB", 1, 14)); // NOI18N
+        bt_agregarVillanos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/supervillain.png"))); // NOI18N
+        bt_agregarVillanos1.setText("Agregar a lista de supervillanos");
+        bt_agregarVillanos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_agregarVillanos1ActionPerformed(evt);
+            }
+        });
+        jd_registrarVillano.getContentPane().add(bt_agregarVillanos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 250, 40));
+
+        wallpaer1.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        wallpaer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        wallpaer1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/threat.png"))); // NOI18N
+        jd_registrarVillano.getContentPane().add(wallpaer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1430, 820));
+
+        Menu.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setText("Crear Villanos");
+        Menu.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 170, -1));
+
+        jButton2.setText("Mostrar Arbol");
+        Menu.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 170, -1));
+
+        jButton3.setText("jButton1");
+        Menu.getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, -1, -1));
+
+        bt_registrarASuperHeroes.setText("Crear Super Heroes");
+        bt_registrarASuperHeroes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_registrarASuperHeroesMouseClicked(evt);
+            }
+        });
+        Menu.getContentPane().add(bt_registrarASuperHeroes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 180, 30));
+
+        wallpaer2.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        wallpaer2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        wallpaer2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/superpower.png"))); // NOI18N
+        Menu.getContentPane().add(wallpaer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 450));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tf_passwordd.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tf_passwordd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_passworddActionPerformed(evt);
+            }
+        });
         getContentPane().add(tf_passwordd, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 210, 50));
 
         bt_ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registro.png"))); // NOI18N
@@ -156,10 +271,10 @@ public class Login extends javax.swing.JFrame {
         String pass = tf_passwordd.getText();
         if (user.equals("stanlee") && pass.equals("spiderman99")) {
             JOptionPane.showMessageDialog(this, "Bienvenido al sistema " + user);
-            jd_registrarse.pack();
-            jd_registrarse.setModal(true);
-            jd_registrarse.setLocationRelativeTo(null);
-            jd_registrarse.setVisible(true);
+            Menu.pack();
+            Menu.setModal(true);
+            Menu.setLocationRelativeTo(null);
+            Menu.setVisible(true);
 
         } else {
             JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrecta");
@@ -167,6 +282,61 @@ public class Login extends javax.swing.JFrame {
             tf_passwordd.setText("");
         }
     }//GEN-LAST:event_bt_ingresarMouseClicked
+
+    private void bt_agregarVillanos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_agregarVillanos1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_agregarVillanos1ActionPerformed
+
+    private void tf_passworddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_passworddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_passworddActionPerformed
+
+    private void bt_registrarASuperHeroesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_registrarASuperHeroesMouseClicked
+        Menu.setVisible(false);
+        jd_registrar.pack();
+        jd_registrar.setModal(true);
+        jd_registrar.setLocationRelativeTo(null);
+        jd_registrar.setVisible(true);
+
+
+    }//GEN-LAST:event_bt_registrarASuperHeroesMouseClicked
+
+    private void bt_agregarHeroesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarHeroesMouseClicked
+        String nombre = tf_name.getText(), planeta = tf_planeta.getText(), eda = tf_edad.getText(), alt = tf_altura.getText(), supers = tf_supers.getText();
+
+        int edad = Integer.parseInt(eda);
+        double altura = Double.parseDouble(alt);
+        int superPowers = Integer.parseInt(supers);
+        while (superPowers < 0 || superPowers > 3) {
+            JOptionPane.showMessageDialog(Menu, " Solo pueden tener de 1 a 3 superPoderes");
+            tf_edad.setText("");
+
+        }
+
+        for (int i = 1; i <= superPowers; i++) {
+
+            int nivel = Integer.parseInt(JOptionPane.showInputDialog(this, " Ingrese nivel del superpoder" + i));
+            while (nivel < 1 || nivel > 10) {
+                JOptionPane.showMessageDialog(this, " El nivel del superpoder debe de estar entra 1 y 10");
+
+                nivel = Integer.parseInt(JOptionPane.showInputDialog(this, " Ingrese nivel del superpoder"));
+
+            }
+            String descri = JOptionPane.showInputDialog(this, " Ingrese descripcion del superpoder");
+            String mortal = JOptionPane.showInputDialog(this, " Es mortal? ");
+        }
+
+        DefaultListModel modelo = (DefaultListModel) jl_heroes.getModel();
+        modelo.addElement(new SuperHeroes(nombre, planeta, edad, 0, superPowers, altura, cb_tipoSuper.getSelectedItem().toString()));
+        jl_heroes.setModel(modelo);
+        tf_name.setText("");
+        tf_planeta.setText("");
+        tf_edad.setText("");
+        tf_altura.setText("");
+        tf_supers.setText("");
+
+
+    }//GEN-LAST:event_bt_agregarHeroesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -190,7 +360,7 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
+        }
         //</editor-fold>
 
         /* Create and display the form */
@@ -202,29 +372,48 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog Menu;
+    private javax.swing.JButton bt_agregarHeroes;
+    private javax.swing.JButton bt_agregarVillanos1;
     private javax.swing.JButton bt_ingresar;
+    private javax.swing.JButton bt_registrarASuperHeroes;
     private javax.swing.JButton bt_salir;
+    private javax.swing.JComboBox<String> cb_tipoSuper;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JTree jTree1;
-    private javax.swing.JDialog jd_registrarse;
+    private javax.swing.JDialog jd_registrar;
+    private javax.swing.JDialog jd_registrarVillano;
     private javax.swing.JList<String> jl_heroes;
-    private javax.swing.JList<String> jl_villanos;
+    private javax.swing.JList<String> jl_villanos1;
     private javax.swing.JLabel lb_fondo;
+    private javax.swing.JTextField tf_altura;
+    private javax.swing.JTextField tf_edad;
+    private javax.swing.JTextField tf_name;
     private javax.swing.JPasswordField tf_passwordd;
+    private javax.swing.JTextField tf_planeta;
+    private javax.swing.JTextField tf_supers;
     private javax.swing.JTextField tf_user;
     private javax.swing.JLabel wallpaer;
+    private javax.swing.JLabel wallpaer1;
+    private javax.swing.JLabel wallpaer2;
     // End of variables declaration//GEN-END:variables
 
-    ArrayList<SuperHeroes> heroe= new ArrayList();
-    ArrayList<Villanos> villanos= new ArrayList();
-    
-    
+    ArrayList<SuperHeroes> heroe = new ArrayList();
+    ArrayList<Villanos> villanos = new ArrayList();
 
 }
