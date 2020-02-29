@@ -511,7 +511,7 @@ public class Login extends javax.swing.JFrame {
                         }
                     }
 
-                   // controlador = 1;
+                    // controlador = 1;
                 } //fin if
 
             }//fin for  
@@ -566,40 +566,54 @@ public class Login extends javax.swing.JFrame {
             int centinela = -1;
             int controlador = -1;
             for (int i = 0; i < raiz.getChildCount(); i++) {
-                if (raiz.getChildAt(i).toString().equals(tipo)) {
-                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Villanos(nombre, planeta, carcel, tipo, edad, muertes, superpoderes, altura));
-                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
-                    centinela = 1;
+                if (raiz.getChildAt(i).toString().equals("Villanos")) {
+                    for (int j = 0; j < raiz.getChildAt(i).getChildCount(); j++) {
+
+                        if (raiz.getChildAt(i).getChildAt(j).toString().equals(tipo)) {
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Villanos(nombre, planeta, carcel, tipo, edad, muertes, superpoderes, altura));
+                            ((DefaultMutableTreeNode) raiz.getChildAt(i).getChildAt(j)).add(p);
+                            centinela = 1;
+                            i = raiz.getChildCount();
+                            break;
+                        } else if (raiz.getChildAt(i).getChildAt(j).toString().equals(tipo)) {
+
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Villanos(nombre, planeta, carcel, tipo, edad, muertes, superpoderes, altura));
+                            ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                            centinela = 1;
+                            i = raiz.getChildCount();
+
+                            break;
+                        } else {
+                            DefaultMutableTreeNode carpeta = new DefaultMutableTreeNode(tipo);
+
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Villanos(nombre, planeta, carcel, tipo, edad, muertes, superpoderes, altura));
+
+                            carpeta.add(p);
+
+                            ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(carpeta);
+                            i = raiz.getChildCount();
+
+                            break;
+                        }
+                    }
+
+                    // controlador = 1;
                 } //fin if
 
-                if (raiz.getChildAt(i) instanceof Villanos) {
-                    DefaultMutableTreeNode n = new DefaultMutableTreeNode();
-                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(n);
-                    controlador = 1;
+            }//fin for  
 
-                }
+            if (centinela == -1 && controlador == -1) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode("Villanos");
+                DefaultMutableTreeNode a = new DefaultMutableTreeNode(tipo);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Villanos(nombre, planeta, carcel, tipo, edad, muertes, superpoderes, altura));
+                n.add(a);
+                a.add(p);
+                raiz.add(n);
+            }//fin if 
+            modeloARBOL.reload();
 
-            }
-
-//fin for  
-            if (controlador == -1) {
-                if (centinela == -1) {
-                    DefaultMutableTreeNode n = new DefaultMutableTreeNode("Villanos");
-                    DefaultMutableTreeNode a = new DefaultMutableTreeNode(tipo);
-                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Villanos(nombre, planeta, carcel, tipo, edad, muertes, superpoderes, altura));
-                    n.add(a);
-                    a.add(p);
-                    raiz.add(n);
-                } else {
-                    DefaultMutableTreeNode a = new DefaultMutableTreeNode(tipo);
-                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Villanos(nombre, planeta, carcel, tipo, edad, muertes, superpoderes, altura));
-
-                }
-                modeloARBOL.reload();
-            } else {
-                JOptionPane.showMessageDialog(this, " No hay persona selecciionada");
-            }
-
+        } else {
+            JOptionPane.showMessageDialog(this, " No ha seleccionado ningun superheroe");
         }
 
 
