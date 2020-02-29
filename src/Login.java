@@ -72,6 +72,9 @@ public class Login extends javax.swing.JFrame {
         popup_opciones = new javax.swing.JPopupMenu();
         mi_eliminar = new javax.swing.JMenuItem();
         mi_agregarAlArbol = new javax.swing.JMenuItem();
+        popup_villano = new javax.swing.JPopupMenu();
+        vi_eliminar = new javax.swing.JMenuItem();
+        vi_agregarAlarbol = new javax.swing.JMenuItem();
         tf_passwordd = new javax.swing.JPasswordField();
         bt_ingresar = new javax.swing.JButton();
         bt_salir = new javax.swing.JButton();
@@ -136,6 +139,11 @@ public class Login extends javax.swing.JFrame {
         jd_registrar.getContentPane().add(bt_agregarVillanos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 240, 40));
 
         jl_villanos.setModel(new DefaultListModel());
+        jl_villanos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_villanosMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(jl_villanos);
 
         jd_registrar.getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, 250, 180));
@@ -221,6 +229,11 @@ public class Login extends javax.swing.JFrame {
         jd_registrarVillano.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, -1));
 
         mi_eliminar.setText("Eliminar");
+        mi_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_eliminarActionPerformed(evt);
+            }
+        });
         popup_opciones.add(mi_eliminar);
 
         mi_agregarAlArbol.setText("Agregar al arbol");
@@ -230,6 +243,22 @@ public class Login extends javax.swing.JFrame {
             }
         });
         popup_opciones.add(mi_agregarAlArbol);
+
+        vi_eliminar.setText("Eliminar");
+        vi_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vi_eliminarActionPerformed(evt);
+            }
+        });
+        popup_villano.add(vi_eliminar);
+
+        vi_agregarAlarbol.setText("Agregar al arbo");
+        vi_agregarAlarbol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vi_agregarAlarbolActionPerformed(evt);
+            }
+        });
+        popup_villano.add(vi_agregarAlarbol);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -353,6 +382,7 @@ public class Login extends javax.swing.JFrame {
     private void bt_agregarVillanos2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarVillanos2MouseClicked
         String nombre = tf_name.getText(), planeta = tf_planeta.getText(), eda = tf_edad.getText(), alt = tf_altura.getText(), supers = tf_supers.getText();
         String mortal = "";
+        String type = cb_tipoSuper.getSelectedItem().toString();
         int edad = Integer.parseInt(eda);
         double altura = Double.parseDouble(alt);
         int superPowers = Integer.parseInt(supers);
@@ -399,8 +429,8 @@ public class Login extends javax.swing.JFrame {
                 }
 
                 DefaultListModel modelo = (DefaultListModel) jl_villanos.getModel();
-                modelo.addElement(new Villanos(nombre, planeta, carcel, cb_tipoSuper.getSelectedItem().toString(), edad, 0, altura));
-                jl_heroes.setModel(modelo);
+                modelo.addElement(new Villanos(nombre, planeta, carcel, type, edad, muertes, superPowers, altura));
+                jl_villanos.setModel(modelo);
                 tf_name.setText("");
                 tf_planeta.setText("");
                 tf_edad.setText("");
@@ -450,7 +480,7 @@ public class Login extends javax.swing.JFrame {
             int centinela = -1;
             int controlador = -1;
             for (int i = 0; i < raiz.getChildCount(); i++) {
-                if (raiz.getChildAt(i).toString().equals("Los vengadores")) {
+                if (raiz.getChildAt(i).toString().equals(tipo)) {
                     DefaultMutableTreeNode p = new DefaultMutableTreeNode(new SuperHeroes(nombre, planeta, edad, contAtrapados, superpoderes, altura, tipo));
                     ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
                     centinela = 1;
@@ -486,6 +516,111 @@ public class Login extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_mi_agregarAlArbolActionPerformed
+
+    private void jl_villanosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_villanosMouseClicked
+        if (jl_villanos.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                popup_villano.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+
+            }
+        }
+    }//GEN-LAST:event_jl_villanosMouseClicked
+
+    private void vi_agregarAlarbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vi_agregarAlarbolActionPerformed
+        if (jl_villanos.getSelectedIndex() >= 0) {
+            DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_supers.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+
+            //obtener la persona a guardar
+            DefaultListModel modeloLISTA = (DefaultListModel) jl_villanos.getModel();
+
+            String nombre, planeta, tipo, carcel;
+            int edad, muertes, superpoderes;
+            double altura;
+
+            tipo = ((Villanos) modeloLISTA.get(jl_villanos.getSelectedIndex())).getTipo();
+            nombre = ((Villanos) modeloLISTA.get(jl_villanos.getSelectedIndex())).getNombre();
+            planeta = ((Villanos) modeloLISTA.get(jl_villanos.getSelectedIndex())).getPlaneta();
+            edad = ((Villanos) modeloLISTA.get(jl_villanos.getSelectedIndex())).getEdad();
+            carcel = ((Villanos) modeloLISTA.get(jl_villanos.getSelectedIndex())).getCarcel();
+            muertes = ((Villanos) modeloLISTA.get(jl_villanos.getSelectedIndex())).getMuertes();
+            superpoderes = ((Villanos) modeloLISTA.get(jl_villanos.getSelectedIndex())).getSuperpoderes();
+            altura = ((Villanos) modeloLISTA.get(jl_villanos.getSelectedIndex())).getAltura();
+
+            int centinela = -1;
+            int controlador = -1;
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().equals(tipo)) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Villanos(nombre, planeta, carcel, tipo, edad, muertes, superpoderes, altura));
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                    centinela = 1;
+                } //fin if
+
+                if (raiz.getChildAt(i) instanceof Villanos) {
+                    DefaultMutableTreeNode n = new DefaultMutableTreeNode();
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(n);
+                    controlador = 1;
+
+                }
+
+            }
+
+//fin for  
+            if (controlador == -1) {
+                if (centinela == -1) {
+                    DefaultMutableTreeNode n = new DefaultMutableTreeNode("Villanos");
+                    DefaultMutableTreeNode a = new DefaultMutableTreeNode(tipo);
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Villanos(nombre, planeta, carcel, tipo, edad, muertes, superpoderes, altura));
+                    n.add(a);
+                    a.add(p);
+                    raiz.add(n);
+                } else {
+                    DefaultMutableTreeNode a = new DefaultMutableTreeNode(tipo);
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Villanos(nombre, planeta, carcel, tipo, edad, muertes, superpoderes, altura));
+
+                }
+                modeloARBOL.reload();
+            } else {
+                JOptionPane.showMessageDialog(this, " No hay persona selecciionada");
+            }
+
+        }
+
+
+    }//GEN-LAST:event_vi_agregarAlarbolActionPerformed
+
+    private void mi_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_eliminarActionPerformed
+        int row = jl_heroes.getSelectedIndex();
+        int response = JOptionPane.showConfirmDialog(
+                this,
+                "Seguro de Eliminar?",
+                "Confirm",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.OK_OPTION) {
+            DefaultListModel m = (DefaultListModel) jl_heroes.getModel();
+            m.remove(row);
+
+        }
+    }//GEN-LAST:event_mi_eliminarActionPerformed
+
+    private void vi_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vi_eliminarActionPerformed
+         int row = jl_villanos.getSelectedIndex();
+        int response = JOptionPane.showConfirmDialog(
+                this,
+                "Seguro de Eliminar?",
+                "Confirm",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.OK_OPTION) {
+            DefaultListModel m = (DefaultListModel) jl_villanos.getModel();
+            m.remove(row);
+
+        }
+    }//GEN-LAST:event_vi_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -552,6 +687,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JMenuItem mi_agregarAlArbol;
     private javax.swing.JMenuItem mi_eliminar;
     private javax.swing.JPopupMenu popup_opciones;
+    private javax.swing.JPopupMenu popup_villano;
     private javax.swing.JTextField tf_altura;
     private javax.swing.JTextField tf_edad;
     private javax.swing.JTextField tf_name;
@@ -559,11 +695,13 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField tf_planeta;
     private javax.swing.JTextField tf_supers;
     private javax.swing.JTextField tf_user;
+    private javax.swing.JMenuItem vi_agregarAlarbol;
+    private javax.swing.JMenuItem vi_eliminar;
     private javax.swing.JLabel wallpaer;
     private javax.swing.JLabel wallpaer1;
     // End of variables declaration//GEN-END:variables
 
     ArrayList<SuperHeroes> heroe = new ArrayList();
     ArrayList<Villanos> villanos = new ArrayList();
-
+    SuperHeroes seleccionado;
 }
