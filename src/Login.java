@@ -480,41 +480,56 @@ public class Login extends javax.swing.JFrame {
             int centinela = -1;
             int controlador = -1;
             for (int i = 0; i < raiz.getChildCount(); i++) {
-                if (raiz.getChildAt(i).toString().equals(tipo)) {
-                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new SuperHeroes(nombre, planeta, edad, contAtrapados, superpoderes, altura, tipo));
-                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
-                    centinela = 1;
+                if (raiz.getChildAt(i).toString().equals("Superheroe")) {
+                    for (int j = 0; j < raiz.getChildAt(i).getChildCount(); j++) {
+
+                        if (raiz.getChildAt(i).getChildAt(j).toString().equals(tipo)) {
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(new SuperHeroes(nombre, planeta, edad, contAtrapados, superpoderes, altura, tipo));
+                            ((DefaultMutableTreeNode) raiz.getChildAt(i).getChildAt(j)).add(p);
+                            centinela = 1;
+                            i = raiz.getChildCount();
+                            break;
+                        } else if (raiz.getChildAt(i).getChildAt(j).toString().equals(tipo)) {
+
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(new SuperHeroes(nombre, planeta, edad, contAtrapados, superpoderes, altura, tipo));
+                            ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                            centinela = 1;
+                            i = raiz.getChildCount();
+
+                            break;
+                        } else {
+                            DefaultMutableTreeNode carpeta = new DefaultMutableTreeNode(tipo);
+
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(new SuperHeroes(nombre, planeta, edad, contAtrapados, superpoderes, altura, tipo));
+
+                            carpeta.add(p);
+
+                            ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(carpeta);
+                            i = raiz.getChildCount();
+
+                            break;
+                        }
+                    }
+
+                   // controlador = 1;
                 } //fin if
 
-                if (raiz.getChildAt(i) instanceof SuperHeroes) {
-                    DefaultMutableTreeNode n = new DefaultMutableTreeNode();
-                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(n);
-                    controlador = 1;
+            }//fin for  
 
-                }
+            if (centinela == -1 && controlador == -1) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode("Superheroe");
+                DefaultMutableTreeNode a = new DefaultMutableTreeNode(tipo);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(new SuperHeroes(nombre, planeta, edad, contAtrapados, superpoderes, altura, tipo));
+                n.add(a);
+                a.add(p);
+                raiz.add(n);
+            }//fin if 
+            modeloARBOL.reload();
 
-            }
-
-//fin for  
-            if (controlador == -1) {
-                if (centinela == -1) {
-                    DefaultMutableTreeNode n = new DefaultMutableTreeNode("Super Heroes");
-                    DefaultMutableTreeNode a = new DefaultMutableTreeNode(tipo);
-                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new SuperHeroes(nombre, planeta, edad, contAtrapados, superpoderes, altura, tipo));
-                    n.add(a);
-                    a.add(p);
-                    raiz.add(n);
-                } else {
-                    DefaultMutableTreeNode a = new DefaultMutableTreeNode(tipo);
-                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new SuperHeroes(nombre, planeta, edad, contAtrapados, superpoderes, altura, tipo));
-
-                }
-                modeloARBOL.reload();
-            } else {
-                JOptionPane.showMessageDialog(this, " No hay persona selecciionada");
-            }
-
+        } else {
+            JOptionPane.showMessageDialog(this, " No ha seleccionado ningun superheroe");
         }
+
     }//GEN-LAST:event_mi_agregarAlArbolActionPerformed
 
     private void jl_villanosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_villanosMouseClicked
@@ -607,7 +622,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_mi_eliminarActionPerformed
 
     private void vi_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vi_eliminarActionPerformed
-         int row = jl_villanos.getSelectedIndex();
+        int row = jl_villanos.getSelectedIndex();
         int response = JOptionPane.showConfirmDialog(
                 this,
                 "Seguro de Eliminar?",
