@@ -57,6 +57,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        bt_salir1 = new javax.swing.JButton();
         wallpaer = new javax.swing.JLabel();
         jd_registrarVillano = new javax.swing.JDialog();
         jTextField7 = new javax.swing.JTextField();
@@ -168,10 +169,18 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("Planeta de Origen");
         jd_registrar.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
 
+        bt_salir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salida.png"))); // NOI18N
+        bt_salir1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_salir1MouseClicked(evt);
+            }
+        });
+        jd_registrar.getContentPane().add(bt_salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 670, 120, 50));
+
         wallpaer.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         wallpaer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         wallpaer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/superpower.png"))); // NOI18N
-        jd_registrar.getContentPane().add(wallpaer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1430, 830));
+        jd_registrar.getContentPane().add(wallpaer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1220, 780));
 
         jd_registrarVillano.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -651,6 +660,10 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_vi_eliminarActionPerformed
 
+    private void bt_salir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_salir1MouseClicked
+       System.exit(0);
+    }//GEN-LAST:event_bt_salir1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -690,6 +703,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton bt_agregarVillanos2;
     private javax.swing.JButton bt_ingresar;
     private javax.swing.JButton bt_salir;
+    private javax.swing.JButton bt_salir1;
     private javax.swing.JComboBox<String> cb_tipoSuper;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
